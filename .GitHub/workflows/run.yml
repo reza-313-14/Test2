@@ -1,0 +1,12 @@
+name: Localtunnel Test
+on: [workflow_dispatch]
+
+jobs:
+  tunnel:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start HTTP Server
+        run: python3 -m http.server 8080 &
+      
+      - name: Start Localtunnel
+        run: npx localtunnel --port 8080
